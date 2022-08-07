@@ -55,3 +55,15 @@ To start the project in a different mode:
 -   dev: `yarn dev`
 -   compat: `yarn start:compat`
 -   prod-compat: `yarn start:prod-compat`
+
+## Generate a tsconfig.json file
+There is a way to use the TypeScript compiler without installing TypeScript. The npx tool can be used to temporarily install TypeScript and run the compiler.
+
+```bash
+npx -p typescript tsc --init
+```
+
+- The -p (or --package) argument tells npx which package provides the tsc command. In this case it is the typescript package.
+- The command first downloads and installs the typescript npm package.
+- tsc is the executable name of the TypeScript compiler. So, once typescript has been installed, the TypeScript compiler is invoked.
+- The --init argument must be passed to generate the tsconfig.json file.

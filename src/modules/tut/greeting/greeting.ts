@@ -28,7 +28,7 @@ export default class Greeting extends LightningElement {
 
     @api
     set speed(value) {
-        if (SPEED_CLASS_MAP[value]) {
+        if (SPEED_CLASS_MAP[value as keyof typeof SPEED_CLASS_MAP]) {
             this.animationSpeed = value;
         } else {
             this.animationSpeed = DEFAULT_SPEED;
@@ -49,7 +49,7 @@ export default class Greeting extends LightningElement {
     // Map slow, medium, fast to CSS Animations
     get animationClass() {
         if (this.isAnimating) {
-            return SPEED_CLASS_MAP[this.speed];
+            return SPEED_CLASS_MAP[this.speed as keyof typeof SPEED_CLASS_MAP];
         }
         return 'hide';
     }
