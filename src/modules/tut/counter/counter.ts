@@ -1,8 +1,24 @@
-import { LightningElement } from 'lwc';
+import { api, LightningElement } from 'lwc';
 
-export default class Counter extends LightningElement {
-  name = 'Joseph'
-  count = 0
+interface ICounter {
+  name: string;
+  count: number;
+  person: Person;
+  incrementCount: () => void;
+  decrementCount: () => void;
+}
+
+export default class Counter extends LightningElement implements ICounter {
+  @api name = 'Joseph'
+  @api count = 0
+
+  @api
+  get person() {
+    return {
+      name: this.name,
+      age: this.count,
+    }
+  }
 
   incrementCount() {
     this.count++
@@ -10,12 +26,5 @@ export default class Counter extends LightningElement {
 
   decrementCount() {
     this.count--
-  }
-
-  get person(): Person {
-    return {
-      name: this.name,
-      age: this.count,
-    }
   }
 }

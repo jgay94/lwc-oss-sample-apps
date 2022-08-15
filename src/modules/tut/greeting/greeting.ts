@@ -21,7 +21,18 @@ const SPEED_CLASS_MAP = {
 }
 const DEFAULT_SPEED = 'medium'
 
-export default class Greeting extends LightningElement {
+interface IGreeting {
+    animationSpeed: string;
+    index: number;
+    isAnimating: boolean;
+    speed: string;
+    greeting: string;
+    animationClass: string;
+    handleAnimationEnd: () => void;
+    updateGreeting: () => void;
+}
+
+export default class Greeting extends LightningElement implements IGreeting {
     animationSpeed = DEFAULT_SPEED;
     index = 0;
     isAnimating = true;
