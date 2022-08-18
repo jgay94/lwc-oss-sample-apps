@@ -100,5 +100,5 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": ["src/**/*.ts", "types/*.d.ts"],            /* Specify the files to include in the compilation. */
+  "include": ["src/**/*.ts", "types/*.d.ts", "src/modules/tut/hello/__tests__/hello.test.ts"],            /* Specify the files to include in the compilation. */
 }

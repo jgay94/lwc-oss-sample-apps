@@ -67,3 +67,33 @@ npx -p typescript tsc --init
 - The command first downloads and installs the typescript npm package.
 - tsc is the executable name of the TypeScript compiler. So, once typescript has been installed, the TypeScript compiler is invoked.
 - The --init argument must be passed to generate the tsconfig.json file.
+
+## Configure Testing
+Install jest using one of the following commands:
+```bash
+npm install jest @lwc/jest-preset --save-dev
+```
+Shorthand version:
+```bash
+npm i -D jest jest-environment-jsdom @types/jest @lwc/jest-preset
+```
+Add the following to the top level of your package.json file:
+```json
+{
+  "jest": {
+    "preset": "@lwc/jest-preset",
+    "moduleNameMapper": {
+      "^foo/(.+)$": "<rootDir>/src/test/modules/foo/$1/$1"
+    }
+  }
+}
+```
+Add the following to the scripts section in your package.json file:
+```json
+{
+  "scripts": {
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch"
+  }
+}
+```
